@@ -48,9 +48,15 @@ public class Application extends SpringBootServletInitializer {
                     .route().routeId("books-api")
                     .bean(Database.class, "findBooks")
                     .endRest()
+                    
                 .get("order/{id}").description("Details of an order by id")
                     .route().routeId("order-api")
-                    .bean(Database.class, "findOrder(${header.id})");
+                    .bean(Database.class, "findOrder(${header.id})")
+                    .endRest()
+                    
+                .post("book").description("Add book to List").type(Book.class)
+                    .route().routeId("book-api")
+                    .bean(Database.class, "addBook(${body})");
         }
     }
 

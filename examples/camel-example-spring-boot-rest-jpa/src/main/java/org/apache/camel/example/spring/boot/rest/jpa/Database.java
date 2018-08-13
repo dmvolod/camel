@@ -35,4 +35,8 @@ public class Database {
     public Order findOrder(Integer id) {
         return orders.findById(id).get();
     }
+    
+    public void addBook(Book book) {
+    	books.save(book);
+    }
 }

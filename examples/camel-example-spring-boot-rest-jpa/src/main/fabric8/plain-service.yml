@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-jpa-service
+spec:
+  ports:
+  - name: rest-jpa-port
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+  sessionAffinity: None
+status:
+  loadBalancer: {
+    }
