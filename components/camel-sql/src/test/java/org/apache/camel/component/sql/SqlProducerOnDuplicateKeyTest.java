@@ -81,11 +81,11 @@ public class SqlProducerOnDuplicateKeyTest extends CamelTestSupport {
                 getContext().getComponent("sql", SqlComponent.class).setDataSource(db);
 
                 from("direct:start")
-                    .to("sql:insert into projects (project, license, book) values (:#prj, :#lic, :#bk) on duplicate key update project=values(project), license=values(license), book = :#bk?batch=true")
+                    .to("sql:insert into projects (`project`, `license`, book) values (:#prj, :#lic, :#bk) on duplicate key update `project`=values(`project`), `license`=values(`license`), book = :#bk?batch=true")
                     .to("mock:result");
                 
                 from("direct:get")
-                    .to("sql:select * from projects where project = :#prj and license = :#lic");
+                    .to("sql:select * from projects where `project` = :#prj and `license` = :#lic");
             }
         };
     }

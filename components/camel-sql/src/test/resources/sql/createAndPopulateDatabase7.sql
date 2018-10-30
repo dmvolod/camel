@@ -16,7 +16,7 @@
 -- ------------------------------------------------------------------------
 
 -- START SNIPPET: e1
-create table projects (project varchar(10), license varchar(5), book varchar(100), primary key (project, license));
-insert into projects values ('Camel', 'ASF', 'Camel in Action');
 SET DATABASE SQL SYNTAX MYS TRUE;
+create table projects (`project` varchar(10), `license` varchar(5), book varchar(100), primary key (`project`, `license`));
+insert into projects values ('Camel', 'ASF', 'Camel in Action');
 -- END SNIPPET: e1
